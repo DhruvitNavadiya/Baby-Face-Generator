@@ -1,0 +1,930 @@
+{
+  "id": "973ff02a-78ec-4a07-915a-951511553b09",
+  "revision": 0,
+  "last_node_id": 26,
+  "last_link_id": 34,
+  "nodes": [
+    {
+      "id": 10,
+      "type": "IPAdapterModelLoader",
+      "pos": [
+        1004.4111938476562,
+        157.08749389648438
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IPADAPTER",
+          "type": "IPADAPTER",
+          "links": [
+            23,
+            24
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui_ipadapter_plus",
+        "ver": "a0f451a5113cf9becb0847b92884cb10cbdec0ef",
+        "Node name for S&R": "IPAdapterModelLoader",
+        "aux_id": "cubiq/ComfyUI_IPAdapter_plus"
+      },
+      "widgets_values": [
+        "ip-adapter-full-face_sd15.bin"
+      ]
+    },
+    {
+      "id": 24,
+      "type": "VAEDecode",
+      "pos": [
+        2288.475830078125,
+        210.24847412109375
+      ],
+      "size": [
+        140,
+        46
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 29
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 32
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            30
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.59",
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 25,
+      "type": "EmptyLatentImage",
+      "pos": [
+        1591.3099365234375,
+        314.30328369140625
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            31
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.59",
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        512,
+        512,
+        1
+      ]
+    },
+    {
+      "id": 1,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        1047.0545654296875,
+        -35.94923782348633
+      ],
+      "size": [
+        270,
+        98
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            18,
+            21
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            16,
+            17
+          ]
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            32
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.59",
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "realisticVisionV60B1_v51HyperVAE.safetensors"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "ImageResize+",
+      "pos": [
+        683.2359619140625,
+        657.701416015625
+      ],
+      "size": [
+        270,
+        218
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            25
+          ]
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui_essentials",
+        "ver": "9d9f4bedfc9f0321c19faf71855e228c93bd0dc9",
+        "Node name for S&R": "ImageResize+"
+      },
+      "widgets_values": [
+        512,
+        512,
+        "nearest",
+        "stretch",
+        "always",
+        0
+      ]
+    },
+    {
+      "id": 5,
+      "type": "ImageResize+",
+      "pos": [
+        674.1449584960938,
+        135.07476806640625
+      ],
+      "size": [
+        270,
+        218
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            20
+          ]
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui_essentials",
+        "ver": "9d9f4bedfc9f0321c19faf71855e228c93bd0dc9",
+        "Node name for S&R": "ImageResize+"
+      },
+      "widgets_values": [
+        512,
+        512,
+        "nearest",
+        "stretch",
+        "always",
+        0
+      ]
+    },
+    {
+      "id": 26,
+      "type": "CLIPVisionLoader",
+      "pos": [
+        800.0263671875,
+        460.66461181640625
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP_VISION",
+          "type": "CLIP_VISION",
+          "links": [
+            33,
+            34
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.59",
+        "Node name for S&R": "CLIPVisionLoader"
+      },
+      "widgets_values": [
+        "clip-vit-h-14\\pytorch_model.bin"
+      ]
+    },
+    {
+      "id": 23,
+      "type": "SaveImage",
+      "pos": [
+        2371.719970703125,
+        326.0093078613281
+      ],
+      "size": [
+        270,
+        270
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 30
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.59"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 15,
+      "type": "CLIPTextEncode",
+      "pos": [
+        1705.2105712890625,
+        2.6836459636688232
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 16
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            14
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.59",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "photorealistic baby, 6 months old, soft smooth skin, rounded cheeks, small nose, cute face, natural lighting, studio portrait, high detail\n"
+      ]
+    },
+    {
+      "id": 14,
+      "type": "CLIPTextEncode",
+      "pos": [
+        1791.4097900390625,
+        684.71875
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 17
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            13
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.59",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "adult face, old person, teenager, cartoon, doll-like, cgi, anime, deformed, bad hands, bad anatomy, blurry, extra limbs, extra fingers, watermark, text, nsfw\n"
+      ]
+    },
+    {
+      "id": 16,
+      "type": "KSampler",
+      "pos": [
+        2017.85498046875,
+        313.4923095703125
+      ],
+      "size": [
+        270,
+        262
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 28
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 14
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 13
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 31
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            29
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.59",
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        998795560177527,
+        "randomize",
+        27,
+        7,
+        "euler",
+        "simple",
+        1
+      ]
+    },
+    {
+      "id": 22,
+      "type": "ModelMergeSimple",
+      "pos": [
+        1465.1429443359375,
+        517.2101440429688
+      ],
+      "size": [
+        270,
+        78
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model1",
+          "type": "MODEL",
+          "link": 26
+        },
+        {
+          "name": "model2",
+          "type": "MODEL",
+          "link": 27
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            28
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.59",
+        "Node name for S&R": "ModelMergeSimple"
+      },
+      "widgets_values": [
+        0.5
+      ]
+    },
+    {
+      "id": 20,
+      "type": "IPAdapterAdvanced",
+      "pos": [
+        1107.8909912109375,
+        301.171630859375
+      ],
+      "size": [
+        270,
+        278
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 18
+        },
+        {
+          "name": "ipadapter",
+          "type": "IPADAPTER",
+          "link": 23
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 20
+        },
+        {
+          "name": "image_negative",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "attn_mask",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        },
+        {
+          "name": "clip_vision",
+          "shape": 7,
+          "type": "CLIP_VISION",
+          "link": 33
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            26
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui_ipadapter_plus",
+        "ver": "a0f451a5113cf9becb0847b92884cb10cbdec0ef",
+        "Node name for S&R": "IPAdapterAdvanced",
+        "aux_id": "cubiq/ComfyUI_IPAdapter_plus"
+      },
+      "widgets_values": [
+        0.5,
+        "linear",
+        "concat",
+        0,
+        1,
+        "V only"
+      ]
+    },
+    {
+      "id": 21,
+      "type": "IPAdapterAdvanced",
+      "pos": [
+        1065.2235107421875,
+        663.9714965820312
+      ],
+      "size": [
+        270,
+        278
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 21
+        },
+        {
+          "name": "ipadapter",
+          "type": "IPADAPTER",
+          "link": 24
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 25
+        },
+        {
+          "name": "image_negative",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "attn_mask",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        },
+        {
+          "name": "clip_vision",
+          "shape": 7,
+          "type": "CLIP_VISION",
+          "link": 34
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            27
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui_ipadapter_plus",
+        "ver": "a0f451a5113cf9becb0847b92884cb10cbdec0ef",
+        "Node name for S&R": "IPAdapterAdvanced",
+        "aux_id": "cubiq/ComfyUI_IPAdapter_plus"
+      },
+      "widgets_values": [
+        0.5,
+        "linear",
+        "add",
+        0,
+        1,
+        "V only"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "LoadImage",
+      "pos": [
+        432.2363586425781,
+        134.99269104003906
+      ],
+      "size": [
+        214.080078125,
+        326
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.59",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair.jpg",
+        "image"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "LoadImage",
+      "pos": [
+        431.64892578125,
+        520.1329956054688
+      ],
+      "size": [
+        214.080078125,
+        326
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            3
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.59",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "young-bearded-man-with-striped-shirt.jpg",
+        "image"
+      ]
+    }
+  ],
+  "links": [
+    [
+      2,
+      3,
+      0,
+      5,
+      0,
+      "IMAGE"
+    ],
+    [
+      3,
+      2,
+      0,
+      4,
+      0,
+      "IMAGE"
+    ],
+    [
+      13,
+      14,
+      0,
+      16,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      14,
+      15,
+      0,
+      16,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      16,
+      1,
+      1,
+      15,
+      0,
+      "CLIP"
+    ],
+    [
+      17,
+      1,
+      1,
+      14,
+      0,
+      "CLIP"
+    ],
+    [
+      18,
+      1,
+      0,
+      20,
+      0,
+      "MODEL"
+    ],
+    [
+      20,
+      5,
+      0,
+      20,
+      2,
+      "IMAGE"
+    ],
+    [
+      21,
+      1,
+      0,
+      21,
+      0,
+      "MODEL"
+    ],
+    [
+      23,
+      10,
+      0,
+      20,
+      1,
+      "IPADAPTER"
+    ],
+    [
+      24,
+      10,
+      0,
+      21,
+      1,
+      "IPADAPTER"
+    ],
+    [
+      25,
+      4,
+      0,
+      21,
+      2,
+      "IMAGE"
+    ],
+    [
+      26,
+      20,
+      0,
+      22,
+      0,
+      "MODEL"
+    ],
+    [
+      27,
+      21,
+      0,
+      22,
+      1,
+      "MODEL"
+    ],
+    [
+      28,
+      22,
+      0,
+      16,
+      0,
+      "MODEL"
+    ],
+    [
+      29,
+      16,
+      0,
+      24,
+      0,
+      "LATENT"
+    ],
+    [
+      30,
+      24,
+      0,
+      23,
+      0,
+      "IMAGE"
+    ],
+    [
+      31,
+      25,
+      0,
+      16,
+      3,
+      "LATENT"
+    ],
+    [
+      32,
+      1,
+      2,
+      24,
+      1,
+      "VAE"
+    ],
+    [
+      33,
+      26,
+      0,
+      20,
+      5,
+      "CLIP_VISION"
+    ],
+    [
+      34,
+      26,
+      0,
+      21,
+      5,
+      "CLIP_VISION"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.6525162866956139,
+      "offset": [
+        -131.83276509174618,
+        88.10431385285048
+      ]
+    },
+    "frontendVersion": "1.26.11"
+  },
+  "version": 0.4
+}
